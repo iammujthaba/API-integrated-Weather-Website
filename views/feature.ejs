@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>find wether</title>
+</head>
+
+<body>
+    <div class="container">
+        </div class="input-area">
+            <form id="myForm" method="post">
+                <label for="idInput">your city:</label>
+                <input type="text" id="idInput" name="cityName">
+
+                <label for="submit">done:</label>
+                <input id="get" type="submit" value="GET" formaction="/get-secret">
+            </form>
+        </div>
+        <div class="response-area">
+            <p>place: <%= allData.location.name %></p>
+            <p>temp: <%= allData.current.temperature %>&deg;C </p>
+            <p>weather descriptions: <%= allData.current.weather_descriptions %></p>
+            <p><%= allData %></p>
+            <p><%= allData %></p>
+            <p><%= allData %></p>
+        </div>
+    </div>
+</body>
+
+</html>
