@@ -4,8 +4,8 @@ import bodyParser from "body-parser";
 
 const app = express();
 const port = 3000;
-const bearerToken = "d0d7672c35930fb0eaa7c63d650b4292";
-const API_URL = "https://api.openweathermap.org";
+const API_URL = "http://api.weatherstack.com";
+const bearerToken = "03fd6ce7fe9c1e8e6aa9ad2a91d20bc0";
 
 app.use(bodyParser.urlencoded({ extended: true }));
 
@@ -14,18 +14,18 @@ app.get("/", (req, res) => {
   });
 
 app.post("/get-secret",async (req, res) => {
-    const endPoit = "/data/2.5/weather"
+    const endPoit = "/current"
     const cityName = req.body.cityName;
     console.log(cityName);
     try {
         const response = await axios.get(API_URL + endPoit, {
           params:{
-              q: cityName,
-              APPID: bearerToken
+              query: cityName,
+              access_key: bearerToken
           }
         });
         console.log(response.data);
-        res.render("index.ejs");
+        res.render("feature.ejs",{allData: response.data});
 
     } catch (error) {
         console.error("Failed to make request:", error.message);
