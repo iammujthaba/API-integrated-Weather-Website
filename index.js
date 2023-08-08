@@ -4,7 +4,8 @@ import bodyParser from "body-parser";
 
 const app = express();
 const port = 3000;
-const API_URL = "https://api.openweathermap.org/data/2.5/weather?q=malappuram&APPID=d0d7672c35930fb0eaa7c63d650b4292";
+const bearerToken = "d0d7672c35930fb0eaa7c63d650b4292";
+const API_URL = "https://api.openweathermap.org";
 
 app.use(bodyParser.urlencoded({ extended: true }));
 
@@ -13,10 +14,16 @@ app.get("/", (req, res) => {
   });
 
 app.post("/get-secret",async (req, res) => {
-    const cityName = req.body;
+    const endPoit = "/data/2.5/weather"
+    const cityName = req.body.cityName;
     console.log(cityName);
     try {
-        const response = await axios.get(API_URL);
+        const response = await axios.get(API_URL + endPoit, {
+          params:{
+              q: cityName,
+              APPID: bearerToken
+          }
+        });
         console.log(response.data);
         res.render("index.ejs");
 
