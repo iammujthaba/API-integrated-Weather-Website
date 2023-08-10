@@ -4,27 +4,80 @@
 <head>
     <meta charset="UTF-8">
     <title>find wether</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <link rel="stylesheet" href="/styles/style.css">
+    <link rel="stylesheet" href="/styles/feature.css">
 </head>
 
 <body>
-    <div class="container">
-        </div class="input-area">
-            <form id="myForm" method="post">
-                <label for="idInput">your city:</label>
-                <input type="text" id="idInput" name="cityName">
 
-                <label for="submit">done:</label>
-                <input id="get" type="submit" value="GET" formaction="/get-secret">
-            </form>
+    <div class="container">
+        <div class="input-area col">
+            <h1 class="heading mx-auto p-2">Weather Forecast</h1>
+            <div class="response-area col">
+                <div class="middle-container">
+                    <form id="myForm" action="/get-secret" method="post">
+                        <div class="row height d-flex justify-content-center align-items-center">
+                            <div class="col-md-6">
+                                <div class="form">
+                                    <input type="text" class="form-control form-input"
+                                        placeholder="Enter City/Town name" id="idInput" name="cityName"
+                                        autocomplete="off" required="">
+                                    <span class="left-pan">
+                                        <button type="submit" class="btn">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                                fill="#5F6368">
+                                                <path
+                                                    d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z">
+                                                </path>
+                                            </svg>
+                                        </button>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
         </div>
         <div class="response-area">
-            <p>place: <%= allData.location.name %></p>
-            <p>temp: <%= allData.current.temperature %>&deg;C </p>
-            <p>weather descriptions: <%= allData.current.weather_descriptions %></p>
-            <p><%= allData %></p>
-            <p><%= allData %></p>
-            <p><%= allData %></p>
+            <div class="box_one">
+                <%= date[0] %>
+                <p><%= allData.current.weather_descriptions %></p>
+                <p><%= allData.current.temperature %>&deg;C </p>
+                <%= date[1] %>
+                <%= date[2] %>
+                <p><%= allData.location.name %></p>
+                <p><%= allData.location.region %></p>
+                <p><%= allData.location.country %></p>
+                <p><%= allData.current.weather_icons %></p>
+            </div>
+            <div class="box_two">
+                <p>weather today in <%= allData.location.name %></p>
+                <div class="one">Humidity <%= allData.current.humidity %></div>
+                <div class="one">UV index <%= allData.current.uv_index %></div>
+                <div class="one">Pressure<%= allData.current.pressure %></div>
+                <div class="one">W-speed<%= allData.current.wind_speed %></div>
+            </div>
+            <div class="box_three">
+                <p>other weather datas</p>
+                <p>feel like</p>
+                <p><%= allData.current.feelslike %></p>
+                <p>wind direction <%= allData.current.feelslike %></p>
+                <p>cloud percent <%= allData.current.feelslike %></p>
+                <p>tada collected time</p>
+                <% const inputDateStr = allData.location.localtime %>
+                <% const [datePart, timePart] = inputDateStr.split(' '); %>
+                <p><%= timePart %></p>
+                <p>wind direction <%= allData.location.lat %></p>
+                <p>wind direction <%= allData.location.lon %></p>
+
+            </div>
         </div>
+        <footer>
+            <p>Copyright © iammujthaba <%= new Date().getFullYear() %></p>
+        </footer>
     </div>
 </body>
 
