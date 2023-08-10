@@ -1,0 +1,88 @@
+body {
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    font-family: 'Bree Serif', serif;
+}
+.container{
+   min-height: 100vh;
+   display: flex;
+   flex-direction: column;
+   padding-top: 2rem;
+}
+h1{
+    font-size: 5.5rem;
+    font-weight: 500;
+    line-height: 1;    
+    color: #F4D160;
+}
+span{
+    font-size: 0.8125rem;
+    font-weight: 100;
+    letter-spacing: 0.55px;
+
+}
+.form{
+    position: relative;
+}
+.form .fa-search{
+    position: absolute;
+    top:20px;
+    left: 20px;
+    color: #9ca3af;
+
+}
+.form span{
+    position: absolute;
+    right: 17px;
+    top: 13px;
+    padding: 2px;
+    border-left: 1px solid #d1d5db;
+
+}
+
+.left-pan{
+    padding-left: 7px;
+}
+
+.left-pan i{
+   
+   padding-left: 10px;
+}
+
+.form-input{
+
+    height: 55px;
+    text-indent: 33px;
+    border-radius: 10px;
+}
+
+.form-input:focus{
+
+    box-shadow: none;
+    border:none;
+}
+.btn{
+    height: 100%;
+    padding: 0;
+    outline: 0;
+    border: none;
+}
+.animated-bg {
+    width: 100%;
+    height: 100%;
+    background-image: url('../images/astronomy.jpg'); /* Replace with your background image */
+    background-size: cover;
+    background-repeat: no-repeat;
+    animation: animateBackground 60s linear infinite; /* Adjust animation duration and timing function */
+}
+
+/* Define the animation keyframes */
+@keyframes animateBackground {
+    0% {
+        background-position: -10px -40px;
+    }
+    100% {
+        background-position: 100% 100%;
+    }
+}

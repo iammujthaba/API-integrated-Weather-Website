@@ -2,28 +2,53 @@
 <html>
 
 <head>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+  <link rel="stylesheet" href="/styles/style.css">
   <title>find wether</title>
 </head>
 
 
-<body>
+<body class="animated-bg">
   <div class="container">
-
-    <div class="response-area">
-
+    <div class="input-area col">
+      <h1 class="heading mx-auto p-2">Weather Forecast</h1>
+      <!-- <form id="myForm" class="center-container" action="/get-secret" method="post">
+          <input type="text" class="centered-input" id="idInput" name="cityName" placeholder="Enter City name">
+        </form> -->
     </div>
 
-    <form id="myForm" method="post">
-      
-      <label for="idInput">your city:</label>
-      <input type="text" id="idInput" name="cityName">
+    <div class="response-area col">
+      <div class="middle-container">
+        <form id="myForm" action="/get-secret" method="post">
+          <div class="row height d-flex justify-content-center align-items-center">
+            <div class="col-md-6">
+              <div class="form">
+                <input type="text" class="form-control form-input" placeholder="Enter City/Town name" id="idInput"
+                  name="cityName" autocomplete="off" required="">
+                <span class="left-pan">
+                  <button type="submit" class="btn">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="#5F6368">
+                      <path
+                        d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z">
+                      </path>
+                    </svg>
+                  </button>
+                </span>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis aut<br> perspiciatis velit deleniti beatae ab, harum ad esse veniam<br> consectetur ea blanditiis magnam excepturi aspernatur</p>
+    </div>
 
-      <label for="submit">done:</label>
-      <input id="get" type="submit" value="GET" formaction="/get-secret">
 
-    </form>
-    
+    <footer>
+      <p>Copyright © iammujthaba <%= new Date().getFullYear() %>
+      </p>
+    </footer>
   </div>
+
 </body>
 
 </html>

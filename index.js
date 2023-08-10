@@ -7,6 +7,7 @@ const port = 3000;
 const API_URL = "http://api.weatherstack.com";
 const bearerToken = "03fd6ce7fe9c1e8e6aa9ad2a91d20bc0";
 
+app.use(express.static("public"));
 app.use(bodyParser.urlencoded({ extended: true }));
 
 app.get("/", (req, res) => {
