@@ -10,14 +10,14 @@
     <link rel="stylesheet" href="/styles/feature.css">
 </head>
 
-<body>
+<body class="animated-bg">
 
     <div class="container">
-        <div class="input-area col">
+        <div class="input-area">
             <h1 class="heading mx-auto p-2">Weather Forecast</h1>
             <div class="response-area col">
                 <div class="middle-container">
-                    <form id="myForm" action="/get-secret" method="post">
+                    <form id="myForm" action="/weather" method="post">
                         <div class="row height d-flex justify-content-center align-items-center">
                             <div class="col-md-6">
                                 <div class="form">
@@ -41,44 +41,186 @@
                 </div>
             </div>
         </div>
+        <% if(locals.allData.current){ %>
         <div class="response-area">
             <div class="box_one">
-                <%= date[0] %>
-                <p><%= allData.current.weather_descriptions %></p>
-                <p><%= allData.current.temperature %>&deg;C </p>
-                <%= date[1] %>
-                <%= date[2] %>
-                <p><%= allData.location.name %></p>
-                <p><%= allData.location.region %></p>
-                <p><%= allData.location.country %></p>
-                <p><%= allData.current.weather_icons %></p>
-            </div>
-            <div class="box_two">
-                <p>weather today in <%= allData.location.name %></p>
-                <div class="one">Humidity <%= allData.current.humidity %></div>
-                <div class="one">UV index <%= allData.current.uv_index %></div>
-                <div class="one">Pressure<%= allData.current.pressure %></div>
-                <div class="one">W-speed<%= allData.current.wind_speed %></div>
-            </div>
-            <div class="box_three">
-                <p>other weather datas</p>
-                <p>feel like</p>
-                <p><%= allData.current.feelslike %></p>
-                <p>wind direction <%= allData.current.feelslike %></p>
-                <p>cloud percent <%= allData.current.feelslike %></p>
-                <p>tada collected time</p>
-                <% const inputDateStr = allData.location.localtime %>
-                <% const [datePart, timePart] = inputDateStr.split(' '); %>
-                <p><%= timePart %></p>
-                <p>wind direction <%= allData.location.lat %></p>
-                <p>wind direction <%= allData.location.lon %></p>
+
+                <div class="one">
+                    <h3><%= date[0] %></h3>
+                </div>
+                <div class="two d-flex">
+                    <div class="temp_div">
+                        <p>Sky <%= allData.current.weather_descriptions %></p>
+                        <h1><%= allData.current.temperature %>&deg;</h1>
+                    </div>
+                    <div class="shadowLine flex-grow-1 ">
+                        <div class="d-flex">
+                            <div>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-geo-alt" viewBox="0 0 16 16">
+                                    <path d="M12.166 8.94c-.524 1.062-1.234 2.12-1.96 3.07A31.493 31.493 0 0 1 8 14.58a31.481 31.481 0 0 1-2.206-2.57c-.726-.95-1.436-2.008-1.96-3.07C3.304 7.867 3 6.862 3 6a5 5 0 0 1 10 0c0 .862-.305 1.867-.834 2.94zM8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10z"/>
+                                    <path d="M8 8a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 1a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
+                                </svg>
+                            </div>
+                            <div  class="mx-2"><h3><%= allData.location.name %></h3><%= allData.location.region %>,<%= allData.location.country %></div>
+                        </div>
+                        <div class="d-flex year_date">
+                            <div>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-calendar2-event" viewBox="0 0 16 16">
+                                    <path d="M11 7.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1z"/>
+                                    <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM2 2a1 1 0 0 0-1 1v11a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V3a1 1 0 0 0-1-1H2z"/>
+                                    <path d="M2.5 4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5H3a.5.5 0 0 1-.5-.5V4z"/>
+                                </svg>
+                            </div>
+                            <div class="mx-2"><%= date[1] %>,<%= date[2] %></div>
+                        </div>
+                    </div>
+                    <div class="weather_icon">
+                        <img src="<%= allData.current.weather_icons %>">
+                    </div>
+                </div>
 
             </div>
+            <div class="box_two">
+                <!-- <p>weather today in <%= allData.location.name %></p>
+                <div class="two_of_one">Humidity <%= allData.current.humidity %></div>
+                <div class="two_of_two">UV index <%= allData.current.uv_index %></div>
+                <div class="two_of_three">Pressure<%= allData.current.pressure %></div>
+                <div class="two_of_four">W-speed<%= allData.current.wind_speed %></div> -->
+
+
+
+
+                <div class="three">
+                    <div>
+                      <h2 style="font-size: 1.25rem; margin-bottom: 20px;">Weather Today in <%= allData.location.name %></h2>
+                    </div>
+                    <div class="sub-three">
+                      <div>
+                        <h3>Humidity</h3>
+                        <div class="box_two_icon">
+                            <div>
+                                <svg xmlns="http://www.w3.org/2000/svg"fill="currentColor" class="bi bi-moisture" viewBox="0 0 16 16">
+                                    <path d="M13.5 0a.5.5 0 0 0 0 1H15v2.75h-.5a.5.5 0 0 0 0 1h.5V7.5h-1.5a.5.5 0 0 0 0 1H15v2.75h-.5a.5.5 0 0 0 0 1h.5V15h-1.5a.5.5 0 0 0 0 1h2a.5.5 0 0 0 .5-.5V.5a.5.5 0 0 0-.5-.5h-2zM7 1.5l.364-.343a.5.5 0 0 0-.728 0l-.002.002-.006.007-.022.023-.08.088a28.458 28.458 0 0 0-1.274 1.517c-.769.983-1.714 2.325-2.385 3.727C2.368 7.564 2 8.682 2 9.733 2 12.614 4.212 15 7 15s5-2.386 5-5.267c0-1.05-.368-2.169-.867-3.212-.671-1.402-1.616-2.744-2.385-3.727a28.458 28.458 0 0 0-1.354-1.605l-.022-.023-.006-.007-.002-.001L7 1.5zm0 0-.364-.343L7 1.5zm-.016.766L7 2.247l.016.019c.24.274.572.667.944 1.144.611.781 1.32 1.776 1.901 2.827H4.14c.58-1.051 1.29-2.046 1.9-2.827.373-.477.706-.87.945-1.144zM3 9.733c0-.755.244-1.612.638-2.496h6.724c.395.884.638 1.741.638 2.496C11 12.117 9.182 14 7 14s-4-1.883-4-4.267z"/>
+                                </svg>
+                            </div>
+                            <h2><%= allData.current.humidity %>%</h2>
+                        </div>
+                      </div>
+                      <div class="left_line"></div>
+                      <div>
+                        <h3>UV index</h3>
+                        <div class="box_two_icon">
+                            <div>
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-brightness-high" viewBox="0 0 16 16">
+                                    <path d="M8 11a3 3 0 1 1 0-6 3 3 0 0 1 0 6zm0 1a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0zm0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13zm8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5zM3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8zm10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0zm-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0zm9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707zM4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708z"/>
+                                </svg>
+                            </div>
+                            <h2><%= allData.current.uv_index %>uv</h2>
+                        </div>
+                      </div>
+                      <div class="left_line"></div>
+                      <div>
+                        <h3>Pressure</h3>
+                        <div  class="box_two_icon">
+                            <div>
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-speedometer" viewBox="0 0 16 16">
+                                    <path d="M8 2a.5.5 0 0 1 .5.5V4a.5.5 0 0 1-1 0V2.5A.5.5 0 0 1 8 2zM3.732 3.732a.5.5 0 0 1 .707 0l.915.914a.5.5 0 1 1-.708.708l-.914-.915a.5.5 0 0 1 0-.707zM2 8a.5.5 0 0 1 .5-.5h1.586a.5.5 0 0 1 0 1H2.5A.5.5 0 0 1 2 8zm9.5 0a.5.5 0 0 1 .5-.5h1.5a.5.5 0 0 1 0 1H12a.5.5 0 0 1-.5-.5zm.754-4.246a.389.389 0 0 0-.527-.02L7.547 7.31A.91.91 0 1 0 8.85 8.569l3.434-4.297a.389.389 0 0 0-.029-.518z"/>
+                                    <path fill-rule="evenodd" d="M6.664 15.889A8 8 0 1 1 9.336.11a8 8 0 0 1-2.672 15.78zm-4.665-4.283A11.945 11.945 0 0 1 8 10c2.186 0 4.236.585 6.001 1.606a7 7 0 1 0-12.002 0z"/>
+                                </svg>
+                            </div>
+                            <h2><%= allData.current.pressure %></h2>
+                        </div>
+                      </div>
+                      <div class="left_line"></div>
+                      <div>
+                        <h3>W-speed</h3>
+                        <div class="box_two_icon">
+                            <div>
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-wind" viewBox="0 0 16 16">
+                                    <path d="M12.5 2A2.5 2.5 0 0 0 10 4.5a.5.5 0 0 1-1 0A3.5 3.5 0 1 1 12.5 8H.5a.5.5 0 0 1 0-1h12a2.5 2.5 0 0 0 0-5zm-7 1a1 1 0 0 0-1 1 .5.5 0 0 1-1 0 2 2 0 1 1 2 2h-5a.5.5 0 0 1 0-1h5a1 1 0 0 0 0-2zM0 9.5A.5.5 0 0 1 .5 9h10.042a3 3 0 1 1-3 3 .5.5 0 0 1 1 0 2 2 0 1 0 2-2H.5a.5.5 0 0 1-.5-.5z"/>
+                                </svg>
+                            </div>
+                            <h2><%= allData.current.wind_speed %>m/s</h2>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+            </div>
+            <div class="box_three">
+
+
+
+
+                <div class="four">
+                    <div>
+                      <h2 style="font-size: 1.25rem;">Ather Weather Datas</h2>
+                      <br>
+                      <p style="margin: 0;">Feels like</p>
+                      <h2 style="margin-bottom: 30px;"><%= allData.current.feelslike %>°</h2>
+                    </div>
+                    <div class="sub-four">
+                      <div class="sub1">
+                        <div>
+                          <p>Wind dir</p>
+                        </div>
+                        <div>
+                          <p><%= allData.current.wind_dir %></p>
+                        </div>
+                      </div>
+                      <hr>
+                      <div class="sub2">
+                        <div>
+                          <p>Cloud</p>
+                        </div>
+                        <div>
+                          <p><%= allData.current.cloudcover %>%</p>
+                        </div>
+                      </div>
+                      <hr>
+                      <div class="sub3">
+                        <div>
+                          <p>Data Fetch</p>
+                        </div>
+                        <div>
+                            <p><%= date[3] %></p>
+                        </div>
+                      </div>
+                      <hr>
+                      <div class="sub2">
+                        <div>
+                          <p>Observation Time</p>
+                        </div>
+                        <div>
+                          <p><%= allData.current.observation_time%></p>
+                        </div>
+                      </div>
+                      <hr>
+                      <div class="sub4">
+                        <div>
+                          <p>lon / lat</p>
+                        </div>
+                        <div>
+                          <p><%= allData.location.lon %>/<%= allData.location.lat %></p>
+                        </div>
+                      </div>
+                      
+                  </div>
+
+            </div>
+            <% }else{%>
+                <h1 style="margin-top: 26px;">Oops! Wrong input try agine</h1>
+                <style>
+                    .container {
+                        min-height: 93vh;
+                    }
+                    </style>
+            <% } %>
         </div>
         <footer>
             <p>Copyright © iammujthaba <%= new Date().getFullYear() %></p>
         </footer>
     </div>
+    <script src="/scripts/feature.js"></script>
 </body>
 
 </html>
