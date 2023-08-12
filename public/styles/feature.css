@@ -24,11 +24,13 @@ h3 {
     margin: 0px;
 }
 .shadowLine{
+    position: relative;
     padding-left: 10px;
     border-left: 1px solid #d1d5db;
 }
 .year_date{
-    margin-top: 40px;
+    position: absolute;
+    bottom: 10px;
 }
     
 .two {
@@ -48,8 +50,9 @@ img {
     width: 100%;
     height: auto;
   }
-h1{
-    font-size: 3rem;
+.temp_div > h1{
+    margin-left: 40px;
+    font-size: 4rem;
     font-weight: 500;
     line-height: 1;    
     color: #F4D160;
@@ -61,7 +64,7 @@ h1{
 }
 .sub-three {
     display: flex;
-    justify-content: space-between;
+    /*justify-content: space-between; */
     padding: 0px 8px 0px 8px;
 }
 
@@ -83,6 +86,8 @@ img, svg {
     vertical-align: baseline;
 }
 .sub-three > div > h3{
+    text-align: center;
+    font-size: 190%;
     margin-bottom: 5px;
     color: #4C4C6D;
 }
@@ -94,8 +99,8 @@ img, svg {
     color: antiquewhite;
 }
 .sub-three > div > div > h2{
-    font-size: 2vw;
-    color: #4C4C6D ;
+    font-size: 1.7vw;
+    color: #000000 ;
   }
 .four {
     padding: 10px 10px 10px 25px;
