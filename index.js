@@ -1,89 +1,84 @@
-import express from "express";
-import axios from "axios";
-import bodyParser from "body-parser";
+// Import required modules
+import express from "express";  // Import the Express framework
+import axios from "axios";  // Import the Axios library for making HTTP requests
+import bodyParser from "body-parser";  // Import the Body Parser middleware for parsing request bodies
 
-const app = express();
-const port = 3000;
-const API_URL = "http://api.weatherstack.com";
-const bearerToken = "03fd6ce7fe9c1e8e6aa9ad2a91d20bc0";
-var name = ""
+const app = express(); // Create an instance of the Express app
+const port = 3000;  // Set the port number for the server
 
-app.use(express.static("public"));
-app.use(bodyParser.urlencoded({ extended: true }));
+// Define API-related constants
+const API_URL = "http://api.weatherstack.com";  // WeatherStack API base URL
+const endPoit = "/current";  // API endpoint for current weather data
+const bearerToken = "03fd6ce7fe9c1e8e6aa9ad2a91d20bc0";  // API access token
 
-function townName(req, res, next){
-  name = req.body.cityName;
-  next()
-}
+// Configure middleware
+app.use(express.static("public"));  // Serve static files from the "public" directory
+app.use(bodyParser.urlencoded({ extended: true }));  // Parse URL-encoded request bodies
 
-app.use(townName)
-
-function dayPic(){
-  var arr = [];   
+// Function to generate date and time information
+function dateAndTimePicker() {
+  var arr = [];
   var date = new Date();
-  // Get the day of the week.
+
+  // Extract date components
   var day = date.getDay();
   var dayName = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
-  // Get the month of the year.
   var month = date.getMonth();
   var monthName = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
-  // Get the year.
   var year = date.getFullYear();
+
   // Get the time
   const hours = date.getHours();
   const minutes = date.getMinutes();
   const seconds = date.getSeconds();
-
   const time = (`${hours}:${minutes}:${seconds}`);
-  console.log(`Current time: ${hours}:${minutes}:${seconds}`);
 
+  // Populate the array with date and time components
   arr[0] = dayName[day];
   arr[1] = monthName[month];
   arr[2] = year;
   arr[3] = time;
-  return arr;
+
+  return arr;  // Return the array with date and time information
 }
 
+// Define routes
 
+// Default route for rendering the index page
 app.get("/", (req, res) => {
-    res.render("index.ejs");
-  });
-
-app.post("/weather",async (req, res) => {//async | change get into past
-    const endPoit = "/current"
-    const cityName = req.body.cityName;
-    console.log(cityName);
-    var dateAndTime = dayPic();
-    try {
-        const response = await axios.get(API_URL + endPoit, {
-          params:{
-              query: cityName,
-              access_key: bearerToken
-          }
-        });
-
-         const dataofapi = response.data;
-        // var ata = JSON.stringify(dataofapi)
-        // console.log(ata);
-        //const data = {"request":{"type":"City","query":"Malappuram, India","language":"en","unit":"m"},"location":{"name":"Malappuram","country":"India","region":"Kerala","lat":"11.067","lon":"76.067","timezone_id":"Asia/Kolkata","localtime":"2023-08-11 10:30","localtime_epoch":1691749800,"utc_offset":"5.50"},"current":{"observation_time":"05:00 AM","temperature":28,"weather_code":116,"weather_icons":["https://cdn.worldweatheronline.com/images/wsymbols01_png_64/wsymbol_0002_sunny_intervals.png"],"weather_descriptions":["Partly cloudy"],"wind_speed":15,"wind_degree":300,"wind_dir":"WNW","pressure":1011,"precip":0,"humidity":70,"cloudcover":25,"feelslike":30,"uv_index":7,"visibility":6,"is_day":"yes"}}
-
-        console.log(dataofapi);
-        res.render("feature.ejs",{
-          allData: dataofapi,
-          date: dateAndTime
-        });
-
-    } catch (error) {
-      console.error("Failed to make request:", error.message);
-
-      const errorMassage = ("Oops! ,", error.message);
-      console.log(errorMassage);
-      res.render("feature.ejs", {
-        error: errorMassage
-      });
-    }    
+  res.render("index.ejs");  // Render the "index.ejs" template
 });
 
+// Route for handling weather data submission
+app.post("/weather", async (req, res) => {
+  const cityName = req.body.cityName;  // Get the city name from the request body
+  var dateAndTime = dateAndTimePicker();  // Get date and time information using the dateAndTimePicker function
+  
+  try {
+    // Make a GET request to the WeatherStack API
+    const response = await axios.get(API_URL + endPoit, {
+      params: {
+        query: cityName,
+        access_key: bearerToken
+      }
+    });
+
+    // Render the "feature.ejs" template with weather data and date/time information
+    res.render("feature.ejs", {
+      allData: response.data,
+      date: dateAndTime
+    });
+  } catch (error) {
+    console.error("Failed to make request:", error.message);
+    
+    // Render the "feature.ejs" template with an error message
+    res.render("feature.ejs", {
+      error: ("Oops! ," + error.message)
+    });
+  }
+});
+
+// Start the server and listen on the specified port
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
 });

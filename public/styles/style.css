@@ -1,83 +1,94 @@
+/* Reset default margin and padding, and set text alignment and font for the entire page */
 body {
     margin: 0;
     padding: 0;
     text-align: center;
     font-family: 'Bree Serif', serif;
 }
-.container{
-   min-height: 100vh;
-   display: flex;
-   flex-direction: column;
-   padding-top: 2rem;
+
+/* Create a flexible container that spans the viewport height and arranges its children in a column */
+.container {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    padding-top: 2rem;
 }
-h1{
+
+/* Style for main heading with large font size, weight, and color */
+h1 {
     font-size: 5.5rem;
     font-weight: 500;
-    line-height: 1;    
+    line-height: 1;
     color: #F4D160;
 }
-span{
+
+/* Style for smaller text elements with reduced font size, weight, and letter spacing */
+span {
     font-size: 0.8125rem;
     font-weight: 100;
     letter-spacing: 0.55px;
-
 }
-.form{
+
+/* Create a relative positioning context for the form section */
+.form {
     position: relative;
 }
-.form .fa-search{
+
+/* Position the search icon absolutely within the form */
+.form .fa-search {
     position: absolute;
-    top:20px;
+    top: 20px;
     left: 20px;
     color: #9ca3af;
-
 }
-.form span{
+
+/* Position an additional icon or content within the form */
+.form span {
     position: absolute;
     right: 17px;
     top: 13px;
     padding: 2px;
     border-left: 1px solid #d1d5db;
-
 }
 
-.left-pan{
+/* Apply padding to the left side of the panel */
+.left-pan {
     padding-left: 7px;
 }
 
-.left-pan i{
-   
-   padding-left: 10px;
+/* Apply padding to the left side of an icon within the panel */
+.left-pan i {
+    padding-left: 10px;
 }
 
-.form-input{
-
+/* Style for form input with specific height, text indentation, and border radius */
+.form-input {
     height: 55px;
     text-indent: 33px;
     border-radius: 10px;
+    outline: none; /* Remove outline on focus */
+    border: none; /* Remove border */
 }
 
-.form-input:focus{
-
-    box-shadow: none;
-    border:none;
-}
-.btn{
+/* Style for buttons with full height and no border or padding */
+.btn {
     height: 100%;
     padding: 0;
-    outline: 0;
-    border: none;
+    outline: 0; /* Remove outline on focus */
+    border: none; /* Remove border */
 }
+
+/* Create an animated background effect with a changing background image */
 .animated-bg {
     width: 100%;
     height: 100%;
-    background-image: url('../images/astronomy.jpg'); /* Replace with your background image */
+    background-image: url('../images/astronomy.jpg'); /* Set the background image */
     background-size: cover;
     background-repeat: no-repeat;
-    animation: animateBackground 60s linear infinite; /* Adjust animation duration and timing function */
+    animation: animateBackground 60s linear infinite; /* Apply animation with specified timing */
 }
 
-/* Define the animation keyframes */
+/* Define the keyframes for the background animation */
 @keyframes animateBackground {
     0% {
         background-position: 0 0;
