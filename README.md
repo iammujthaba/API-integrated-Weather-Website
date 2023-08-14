@@ -39,7 +39,7 @@ Before running the application, make sure you have the following installed:
 ## Usage
 1. Run the application:
 
-    npm start
+    nodemon index.js / npm start
 
     This will start the development server.
 
