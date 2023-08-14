@@ -54,10 +54,10 @@ Before running the application, make sure you have the following installed:
 
 3. Enter a city's name in the search bar to get weather details for that city.
 
+(NOTE: Please note that this website is not currently responsive for medium and small devices. If you are interested in improving its responsiveness, I would be happy to hear your suggestions.)
+
 ## Contributing
 Contributions are welcome! 
-
-(NOTE: Please note that this website is not currently responsive for medium and small devices. If you are interested in improving its responsiveness, I would be happy to hear your suggestions.)
 
 Feel free to submit pull requests if you find any issues or want to enhance the application. 
 Please follow the [contribution guidelines](CONTRIBUTING.md).
