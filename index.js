@@ -7,9 +7,11 @@ const app = express(); // Create an instance of the Express app
 const port = 3000;  // Set the port number for the server
 
 // Define API-related constants
+/* Remember to log in to http://api.weatherstack.com using your username and password. 
+This will generate a bearer token that you can use in your project.*/
 const API_URL = "http://api.weatherstack.com";  // WeatherStack API base URL
-const endPoit = "/current";  // API endpoint for current weather data
-const bearerToken = "03fd6ce7fe9c1e8e6aa9ad2a91d20bc0";  // API access token
+const endPoit = "/current";  // API endpoint for current weather data - (This is the only available endpoint that is free.)
+const bearerToken = "03fd6ce7fe9c1e8e6aa9ad2a91d20bc0";  // API access token - (use your Bearer Token)
 
 // Configure middleware
 app.use(express.static("public"));  // Serve static files from the "public" directory
