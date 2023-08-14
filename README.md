@@ -23,20 +23,25 @@ Before running the application, make sure you have the following installed:
 
 ### Installation
 1. Clone this repository to your local machine:
-git clone https://github.com/iammujthaba/Weather-API.git
+
+    git clone https://github.com/iammujthaba/Weather-API.git
 
 2. Navigate to the project directory:
-cd [your local file path]/weather-forecast-website
+
+    cd [your local file path]/weather-forecast-website
 
 3. Install the required dependencies using npm:
-npm install
 
+    npm install
+
+(IMP: Remember to log in to http://api.weatherstack.com using your username and password. This will generate a bearer token that you can use in your project. -(index.js code line 9 - 12))
 
 ## Usage
 1. Run the application:
-npm start
 
-This will start the development server.
+    npm start
+
+    This will start the development server.
 
 2. Open your web browser and go to http://localhost:3000 to access the Weather Forecast Website.
 
