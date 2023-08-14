@@ -56,7 +56,10 @@ Before running the application, make sure you have the following installed:
 
 ## Contributing
 Contributions are welcome! 
-If you find any issues or want to enhance the application, feel free to submit pull requests. 
+
+(NOTE: Please note that this website is not currently responsive for medium and small devices. If you are interested in improving its responsiveness, I would be happy to hear your suggestions.)
+
+Feel free to submit pull requests if you find any issues or want to enhance the application. 
 Please follow the [contribution guidelines](CONTRIBUTING.md).
 
 ### How to Contribute
