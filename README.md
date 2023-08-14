@@ -31,7 +31,7 @@ Before running the application, make sure you have the following installed:
 ### Installation
 1. Clone this repository to your local machine:
 
-    `git clone https://github.com/iammujthaba/Weather-API.git`
+    `git clone https://github.com/iammujthaba/Weather-Website.git`
 
 2. Navigate to the project directory:
 
