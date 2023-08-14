@@ -35,7 +35,7 @@ Before running the application, make sure you have the following installed:
 
 2. Navigate to the project directory:
 
-    `cd weather-API`
+    `cd Weather-Website`
 
 3. Install the required dependencies using npm:
 
