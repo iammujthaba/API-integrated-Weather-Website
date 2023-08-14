@@ -2,6 +2,13 @@
 
 Welcome to the Weather Forecast Website! 
 
+
+![Weather Forecast Website preview](https://drive.google.com/uc?export=view&id=18GsMmacTMjB1f0fK3n4XwyLv5CYFlmNt)
+
+
+
+
+
 This web application provides real-time weather information for different cities. 
 Users can input a city's name and get current weather details.
 
@@ -24,26 +31,26 @@ Before running the application, make sure you have the following installed:
 ### Installation
 1. Clone this repository to your local machine:
 
-    git clone https://github.com/iammujthaba/Weather-API.git
+    `git clone https://github.com/iammujthaba/Weather-API.git`
 
 2. Navigate to the project directory:
 
-    cd weather-API
+    `cd weather-API`
 
 3. Install the required dependencies using npm:
 
-    npm install
+    `npm install`
 
 (IMP: Remember to log in to [api.weatherstack.com](https://weatherstack.com/documentation) using your username and password. This will generate a bearer token that you can use in your project. -(index.js code line 9 - 14))
 
 ## Usage
 1. Run the application:
 
-    nodemon index.js / npm start
+    `nodemon index.js` / `npm start`
 
     This will start the development server.
 
-2. Open your web browser and go to http://localhost:3000 to access the Weather Forecast Website.
+2. Open your web browser and go to `http://localhost:3000` to access the Weather Forecast Website.
 
 3. Enter a city's name in the search bar to get weather details for that city.
 
@@ -61,9 +68,6 @@ Please follow the [contribution guidelines](CONTRIBUTING.md).
 
 ## Give It a Star!
 If you find this project helpful or interesting, please consider giving it a star. It's a great way to show your support and appreciation.
-
-## License
-This project is licensed under the [MIT License](LICENSE).
 
 ---
 
