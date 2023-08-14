@@ -28,13 +28,13 @@ Before running the application, make sure you have the following installed:
 
 2. Navigate to the project directory:
 
-    cd [your local file path]/weather-forecast-website
+    cd weather-API
 
 3. Install the required dependencies using npm:
 
     npm install
 
-(IMP: Remember to log in to http://api.weatherstack.com using your username and password. This will generate a bearer token that you can use in your project. -(index.js code line 9 - 12))
+(IMP: Remember to log in to http://api.weatherstack.com using your username and password. This will generate a bearer token that you can use in your project. -(index.js code line 9 - 14))
 
 ## Usage
 1. Run the application:
