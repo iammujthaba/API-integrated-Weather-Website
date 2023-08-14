@@ -34,7 +34,7 @@ Before running the application, make sure you have the following installed:
 
     npm install
 
-(IMP: Remember to log in to http://api.weatherstack.com using your username and password. This will generate a bearer token that you can use in your project. -(index.js code line 9 - 14))
+(IMP: Remember to log in to [api.weatherstack.com](https://weatherstack.com/documentation) using your username and password. This will generate a bearer token that you can use in your project. -(index.js code line 9 - 14))
 
 ## Usage
 1. Run the application:
